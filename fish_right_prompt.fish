@@ -27,9 +27,8 @@ function fish_right_prompt
 
     set -l duration "$CMD_DURATION$cmd_duration"
     if test "$duration" -gt 250
-        echo -sn "$color"(echo "$duration" | humanize_duration)"$color_normal "
-    else
-        set -l venv_name (basename "$VIRTUAL_ENV")
-        echo -sn "$color$venv_name$color_normal "
+        echo -sn "$color"(echo "$duration" | humanize_duration)"$color_normal | "
     end
+    set -l venv_name (basename "$VIRTUAL_ENV")
+    echo -sn "$color$venv_name$color_normal "
 end
